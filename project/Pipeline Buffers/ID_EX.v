@@ -18,7 +18,8 @@ module ID_EX (
     input [3:0] ALUop_IN,
     input [5:0] IMM_IN,
     input [4:0] ALUCtrl_IN,
-    input //CONTROL SIGNALS,
+    input megWrite_IN, memtoReg_IN, PCtoReg_IN, branchN_IN, branchZ_IN, jump_IN, jumpMem_IN, ALU_IN, memRead_IN, memWrite_IN,
+    input [3:0] ALU_IN,
     input clk,
     /////////////////////////////////////////////////////////////////
     output reg [31:0] PC_OUT, RS_OUT, RT_OUT,
@@ -26,7 +27,8 @@ module ID_EX (
     output reg [3:0] ALUop_OUT,
     output reg [5:0] IMM_OUT,
     output reg [4:0] ALUCtrl_OUT,
-    output //CONTROL SIGNALS,
+    output megWrite_OUT, memtoReg_OUT, PCtoReg_OUT, branchN_OUT, branchZ_OUT, jump_OUT, jumpMem_OUT, memRead_OUT, memWrite_OUT,
+    output reg [3:0] ALU_OUT
 );
 
     always @(negedge clk)
@@ -38,6 +40,15 @@ module ID_EX (
         ALUop_OUT = ALUop_IN;
         IMM_OUT = IMM_IN;
         ALUCtrl_OUT = ALUCtrl_IN;
-        //CONTROL SIGNALS
+        megWrite_OUT = megWrite_IN;
+        memtoReg_OUT = memtoReg_IN;
+        PCtoReg_OUT = PCtoReg_IN;
+        branchN_OUT = branchN_IN;
+        branchZ_OUT = branchZ_IN;
+        jump_OUT = jump_IN;
+        jumpMem_OUT = jumpMem_IN;
+        ALU_OUT = ALU_IN;
+        memRead_OUT = memRead_IN;
+        memWrite_OUT = memWrite_IN;
     end
 endmodule
