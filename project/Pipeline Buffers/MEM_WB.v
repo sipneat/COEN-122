@@ -13,27 +13,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module MEM_WB (
-    input [31:0] DATA_IN, ALU_S_IN, RS_IN,
-    input [5:0] RD_IN,
-    input ALU_Flag_IN, MemToReg_IN, RegWrite_IN, JumpMem_IN, Jump_IN, Branch_IN,
+    input [31:0] DATA_IN, ALUSum_IN,
+    input memToReg_IN,
     input clk,
     /////////////////////////////////////////////////////////////////
-    output reg [31:0] DATA_OUT, ALU_S_OUT, RS_OUT,
-    output reg [5:0] RD_OUT,
-    output reg ALU_Flag_OUT, MemToReg_OUT, RegWrite_OUT, JumpMem_OUT, Jump_OUT, Branch_OUT,
+    output reg [31:0] DATA_OUT, ALUSum_OUT,
+    output reg memToReg_OUT
 );
 
     always @(negedge clk)
     begin
         DATA_OUT = DATA_IN;
-        ALU_S_OUT = ALU_S_IN;
-        RS_OUT = RS_IN;
-        RD_OUT = RD_IN;
-        ALU_Flag_OUT = ALU_Flag_IN;
-        MemToReg_OUT = MemToReg_IN;
-        RegWrite_OUT = RegWrite_IN;
-        JumpMem_OUT = JumpMem_IN;
-        Jump_OUT = Jump_IN;
-        Branch_OUT = Branch_IN;
+        ALUSum_OUT = ALUSum_IN;
+        memToReg_OUT = memToReg_IN;
     end
 endmodule
